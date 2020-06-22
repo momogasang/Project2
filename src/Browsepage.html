@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/reset.css" type="text/css">
+    <link rel="stylesheet" href="../css/Browsepage.css" type="text/css">
+    <script src="jq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#country").change(function(){
+                $("#country option").each(function(i,o){
+                    if($(this).attr("selected"))
+                    {
+                        $(".city").hide();
+                        $(".city").eq(i).show();
+                    }
+                });
+            });
+            $("#country").change();
+        });
+    </script>
+
+    <title>浏览页</title>
+</head>
+<body>
+<header>
+<!--    导航栏-->
+    <nav class="nav">
+        <li>导航条目：
+            <a href="Homepage.html">首页</a>
+            <b>浏览页</b>
+            <a href="Search.html">搜索页</a></li>
+        <div class="personal">
+            <button class="dropdown">个人中心</button>
+            <div class="dropdown-content">
+                <div id="upload"><img src="../images/top.png" width="28"><a href="upload.html">上传</a></div>
+                <div id="myPhoto"><img src="../images/faimly%20album.png" width="28"><a href="myPhoto.html">我的照片</a></div>
+                <div id="myTuck"><img src="../images/scan%20read.png" width="28"><a href="favor.html">我的收藏</a></div>
+                <div id="loadding"><img src="../images/nickname.png" width="28"><a href="../index.html">登入</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--左边热门选项-->
+<div class="aside">
+    <form>
+<!--        搜索栏-->
+        <h2>Search by Title</h2>
+        <input type="search">
+            <img class="refresh" onclick="alert('已为您筛选图片')" src="../images/search.png" width="28">
+    </form>
+<!--    热门地方-->
+    <div class="Hot-select">
+        <h2>Hot Country</h2>
+        <div class="select-box" onclick="alert('已为您筛选图片')">
+            <a>
+                <h3>China</h3>
+                <h3>England</h3>
+                <h3>Mesopotamia</h3>
+            </a>
+        </div>
+    </div>
+    <div class="Hot-select">
+        <h2>Hot City</h2>
+        <div class="select-box"  onclick="alert('已为您筛选图片')">
+            <h3>AWaLong</h3>
+            <h3>Uruk</h3>
+            <h3>YunDingTianGong</h3>
+        </div>
+    </div>
+    <div class="Hot-select">
+        <h2>Hot Content</h2>
+        <div class="select-box" onclick="alert('已为您筛选图片')">
+            <h3>City</h3>
+            <h3>Desert</h3>
+            <h3>River</h3>
+        </div>
+    </div>
+</div>
+<!--筛选栏-->
+<div class="Filter">
+    <h2>热门</h2>
+    <select id="country">
+        <option>--国家--</option>
+        <option>Gabon</option>
+        <option>China</option>
+        <option>Mesopotamia</option>
+        <option>Japan</option>
+    </select>
+    <select class="city">
+        <option>--城市--</option>
+    </select>
+    <select class="city">
+        <option>Libreville</option>
+    </select>
+    <select class="city">
+        <option>shanghai</option>
+        <option>AWaLong</option>
+        <option>chengdu</option>
+    </select>
+    <select class="city">
+        <option>Uruk</option>
+        <option>Babylonian</option>
+        <option>Sumer</option>
+    </select>
+    <select class="city">
+        <option>Tokyo</option>
+        <option>Kobe</option>
+        <option>Nagoya</option>
+    </select>
+    <button id="but1">筛选</button>
+</div>
+<!--主要的图-->
+<table border="7">
+    <tr>
+        <td><a href="details.html"><img src="../travel-images/normal/small/9498368556.jpg" alt="凯旋门" width="320" height="210"></a></td>
+        <td><a href="details.html"><img src="../travel-images/normal/small/9496787858.jpg" alt="海湾" width="320" height="210"></a></td>
+        <td><a href="details.html"><img src="../travel-images/normal/small/6119127716.jpg" alt="海港" width="320" height="210"></a></td>
+    </tr>
+    <tr>
+        <td><a href="details.html"><img src="../travel-images/normal/small/6592902825.jpg" alt="森林" width="320" height="210"></a></td>
+        <td><a href="details.html"><img src="../travel-images/normal/small/8730408907.jpg" alt="高楼" width="320" height="210"></a></td>
+        <td><a href="details.html"><img src="../travel-images/normal/small/8711623884.jpg" alt="遗迹" width="320" height="210"></a></td>
+    </tr>
+</table>
+<!--页脚-->
+<section class="footer">
+    <footer>
+        <div><a class="about us" href="mailto:19302010055@fudan.edu.cn">联系我们</a> |
+            <a href="#top" class="backTop">回到顶端</a></div>
+        <address><p>Copyright © 2020-2021 Web fundamental.All Rights Reserved.备案号:19302010055</p></address>
+    </footer>
+</section>
+</body>
+</html>
+
+<script src="jq.js"></script>
+
+<script>
+    $(document).ready(function(){
+        window.onload = function(){
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/../php/home.php',
+                async: false,
+                success: function (data) {
+                    if(data.status == 1){
+                        $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../php/logout.php'>退出</a>");
+                    } else {
+                        // console.log(data.msg);
+                        $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                    }
+                },
+            });
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/../php/screen.php',
+                async: false,
+                success: function (data) {
+                    if(data.status == 1){
+                        if(data.msg.length>0){
+                            $('table').html(" ");
+                            for(i=0;i<data.msg.length;i++){
+                                hr = "";
+                                hr += "<tr>";
+                                for(a=0;a<data.msg[i].length;a++){
+                                    hr += "<td><a href='details.html?id="+data.msg[i][a].ImageID+"'>";
+                                    hr += "<img src='../travel-images/normal/small/"+data.msg[i][a].PATH+"' alt='凯旋门' width='320' height='210'>";
+                                    hr += "</a></td>";
+                                }
+                                hr += "</tr>";
+                                $('table').append(hr);
+                            }
+                        }
+                    } else {
+                        // console.log(data.msg);
+                        // $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                    }
+                },
+            });
+            return false;
+        }
+
+
+        $("#but1").click(function(){
+            // alert("已为您筛选图片");
+            country = $("#country option:selected").text();
+            if(country.indexOf("--国家--") >= 0 ) { 
+                alert('已为您筛选图片')
+                return false;
+            }else{
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    url: '/../php/screenCountry.php',
+                    data:{
+                        'country':country
+                    },
+                    async: false,
+                    success: function (data) {
+                        if(data.status == 1){
+                            if(data.msg.length>0){
+                                $('table').html(" ");
+                                for(i=0;i<data.msg.length;i++){
+                                    hr = "";
+                                    hr += "<tr>";
+                                    for(a=0;a<data.msg[i].length;a++){
+                                        hr += "<td><a href='details.html?id="+data.msg[i][a].ImageID+"'>";
+                                        hr += "<img src='../travel-images/normal/small/"+data.msg[i][a].PATH+"' alt='凯旋门' width='320' height='210'>";
+                                        hr += "</a></td>";
+                                    }
+                                    hr += "</tr>";
+                                    $('table').append(hr);
+                                }
+                            }
+                        } else {
+                            alert('暂无数据');
+                            // console.log(data.msg);
+                            // $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                        }
+                    },
+                });
+                return false;
+            }
+        });
+    });
+</script>

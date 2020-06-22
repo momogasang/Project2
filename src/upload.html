@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="stylesheet" href="../css/reset.css" type="text/css">
+    <link rel="stylesheet" href="../css/upload.css" type="text/css">
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        //图片上传预览，非IE则用了HTML5的代码，IE是用了滤镜
+        function previewImage(file, MAXWIDTH, MAXHEIGHT) {//MAXWIDTH、MAXHEIGHT与放预览图片的DIV——preview的大小相呼应
+            var div = document.getElementById('preview');
+            if (file.files && file.files[0]) {//HTML5部分
+                div.innerHTML = "<img id='imghead'></img>";
+                var img = document.getElementById('imghead');
+                img.onload = function () {
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    img.width = rect.width;
+                    img.height = rect.height;
+                    img.style.marginTop = rect.top + 'px';
+                }
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    img.src = evt.target.result;
+                }
+                reader.readAsDataURL(file.files[0]);
+            } else //兼容IE
+            {
+                var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                file.select();
+                var src = document.selection.createRange().text;
+                div.innerHTML = "<img id='imghead'></img>";
+                var img = document.getElementById('imghead');
+                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                div.innerHTML = "<div style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+            }
+        }
+
+        //用于计算预览图片的大小
+        function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+            var param = {
+                top: 0,
+                left: 0,
+                width: width,
+                height: height
+            };
+            if (width > maxWidth || height > maxHeight) {
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+                if (rateWidth > rateHeight) {
+                    param.width = maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                } else {
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+    <title>上传</title>
+</head>
+<body id="top">
+<header>
+    <!--    导航栏-->
+    <nav class="nav">
+        <li>导航条目：
+            <a href="Homepage.html">首页</a>
+            <a href="Browsepage.html">浏览页</a>
+            <a href="Search.html">搜索页</a></li>
+        <div class="personal">
+            <button class="dropdown">个人中心</button>
+            <div class="dropdown-content">
+                <div id="upload"><img src="../images/top.png" width="28"><a href="upload.html">上传</a></div>
+                <div id="myPhoto"><img src="../images/faimly%20album.png" width="28"><a href="myPhoto.html">我的照片</a></div>
+                <div id="myTuck"><img src="../images/scan%20read.png" width="28"><a href="favor.html">我的收藏</a></div>
+                <div id="loadding"><img src="../images/nickname.png" width="28"><a href="../index.html">登入</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--主内容-->
+<main>
+    <h1>upload</h1>
+    <div class="article">
+        <form>
+            <div id="load">
+                <div id="preview" style="width:200px;height:200px;"></div><!--用来放预览图片的DIV-->
+                <input type="file" onchange="previewImage(this,400,400)" accept="image/*"/>
+                <!--一旦用户选择了图片文件，则触发上方的previewImage函数-->
+            </div>
+            <label>
+                图片标题：
+            </label>
+            <input type="text">
+            <label>
+                图片描述：
+            </label>
+            <textarea></textarea>
+            <label>
+                拍摄国家：
+            </label>
+            <input type="text">
+            <label>
+                拍摄城市：
+            </label>
+            <input type="text">
+            <a><button id="submit" onclick="al">Submit</button></a>
+        </form>
+
+    </div>
+</main>
+<!--页脚-->
+<section class="footer">
+    <footer>
+        <div><a class="about us" href="mailto:19302010055@fudan.edu.cn">联系我们</a> |
+            <a href="#top" class="backTop">回到顶端</a></div>
+        <address><p>Copyright © 2020-2021 Web fundamental.All Rights Reserved.备案号:19302010055</p></address>
+    </footer>
+</section>
+</body>
+</html>

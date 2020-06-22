@@ -1,0 +1,243 @@
+html{
+    height: 100%;
+}
+body {
+    font-family: "Apple LiSung";
+    font-size: 15px;
+    margin: 0;
+    color:deepskyblue;
+    background-color: #f6f6f6;
+}
+/*导航栏*/
+.nav{
+    position:relative;
+    padding: 1px;
+    text-align: left;
+    border:rgba(0,0,0,0.5);
+    border-style:solid;
+    border-width:1px;
+    background-clip: content-box;
+    background-color: black;
+    width: 1450px;
+}
+/*导航条目*/
+.nav li{
+    position: relative;
+    font-size: 10px;
+    margin: 15px;
+    display: inline-block;
+    font-size: 17px;
+}
+header a {
+    color: rgb(255,240,255);
+    text-decoration: none;
+}
+header a:visited{
+    color:dodgerblue;
+
+}
+header a:link{
+    color: cornflowerblue;
+}
+header a:hover {
+    color: whitesmoke;
+    border-bottom: 2px solid #38f;
+    text-decoration: underline;
+}
+header b{
+    display: inline-block;
+    color:dodgerblue;
+    border-bottom: 2px solid #38f;
+}
+/* 下拉按钮样式 */
+.dropdown {
+    background-color: rgba(0,0,0,1);
+    color:dodgerblue;
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    min-width: 120px;
+}
+/* 容器 */
+.personal {
+    position: absolute;
+    right: 20px;
+    display: inline-block;
+
+}
+/* 下拉内容 */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 1;
+    min-width: 120px;
+    min-height: 180px;
+    text-align: center;
+    float: right;
+    box-shadow: 5px 1px 3px rgba(100,200,200,1)
+}
+.dropdown-content div img{
+    vertical-align: middle;
+}
+
+/* 下拉菜单的链接 */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 15px;
+}
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+.dropdown-content a:hover {
+    color:dodgerblue;
+    border-bottom: 2px solid #38f;
+}
+/* 在鼠标移上去后显示下拉菜单 */
+.personal:hover .dropdown-content {
+    display: block;
+}
+/* 当下拉内容显示后修改下拉按钮的背景颜色 */
+.personal:hover .dropdown {
+    background-color: wheat;
+    font-size: 17px;
+}
+.footer{
+    font-family: "Apple SD Gothic Neo";
+    position: relative;
+    padding-right: 20px;
+    bottom: 0;
+    clear:both;
+    background-clip: content-box;
+    color:white;
+    height: 55px;
+    background-color: rgba(0,0,0,0.5);
+    width: 1455px;
+}
+.footer div a{
+    padding: 20px;
+    color: white;
+}
+address{
+    font-size:xx-small;
+}
+/*侧边栏*/
+.aside{
+    position: absolute;
+}
+
+/*总的h2（侧边栏标题）*/
+div h2{
+    font-family: "Arial Hebrew Scholar";
+    color: cornflowerblue;
+    font-size: larger;
+    position: relative;
+    left: 30px;
+}
+/*每个大的区块*/
+Hot-select{
+    background-clip: border-box;
+    width: 200px;
+    border-radius: 5%;
+    background-color: rgba(235,255,250,0.2);
+    position: relative;
+    left: 30px;
+    border:rgba(5,5,5,0.5);
+    border-style:solid;
+    border-width:1px;
+    margin-bottom: 10px;
+}
+/*每个大区块的内容*/
+.select-box{
+    background-clip: content-box;
+    width: 150px;
+    border-radius: 5%;
+    background-color: rgba(255,255,230,0.4);
+    position: relative;
+    left: 30px;
+
+}
+/*搜索栏*/
+form h2{
+    left: 20px;
+    position: relative;
+}
+/*搜索栏的输入框*/
+input{
+    width: 150px;
+    left: 10px;
+    bottom: 20px;
+    position: relative;
+}
+/*点击图标*/
+form img{
+    right: 10px;
+    bottom: 10px;
+    position: relative;
+}
+/*热门的图表*/
+form{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    background-clip: content-box;
+    height:80px;
+    width: 200px;
+    border-radius: 5%;
+    border:rgba(5,5,5,0.5);
+    border-style:solid;
+    border-width:1px;
+    background-color: rgba(255,255,230,0.4);
+    left: 30px;
+    position: relative;
+}
+/*筛选标题*/
+.Filter h2{
+    font-size: x-large;
+    position: relative;
+    left: 300px;
+    top: 10px;
+    background-clip: border-box;
+    border-radius: 60%;
+    width: 200px;
+    height: 60px;
+    background-color: navajowhite;
+    text-align: center;
+    padding-top: 30px;
+}
+/*筛选选项*/
+.Filter select{
+    height: 30px;
+    width: 100px;
+    position: relative;
+    left: 300px;
+}
+/*筛选按钮*/
+.Filter button{
+    height: 30px;
+    width: 50px;
+    position: relative;
+    left: 350px;
+    border-radius: 55%;
+    background-color: navajowhite;
+}
+/*图表的表单*/
+table{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 300px;
+    width: auto;
+    height: auto;
+    background-color: rgba(200,230,240,0.4);
+}
+/*设置图片间距*//*相框的阴影*/
+table td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    text-shadow: 50px 10px 30px rgba(100,200,200,1);
+}
+

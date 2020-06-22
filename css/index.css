@@ -1,0 +1,57 @@
+body{
+    font: 12px "Apple LiGothic",tahoma,arial,Hiragino Sans GB,宋体;
+    padding: 20px;
+    background-image: url('../images/index.png');
+    background-repeat: space;
+    background-size:100% 200%;
+}
+.load{
+    position: relative;
+    width: 400px;
+    left: 520px;
+    top:100px;
+    border: gold 2px solid;
+    border-radius: 10px;
+    z-index: 0;
+
+}
+.load img{
+    margin-top: 15px;
+    margin-left: 150px;
+    text-align: center;
+}
+.load h1{
+    margin-top: 5px;
+    text-align: center;
+}
+.load p em{
+    font-size: medium;
+    padding-left: 30px;
+    background:-webkit-linear-gradient(left , gold , rgb(218,178,115) , red );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.load input{
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    width: 80%;
+    height: 38px;
+    line-height: 34px;
+    box-shadow: none;
+    border-radius: 3px;
+    outline: 0;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
+}
+.load h2{
+    margin-left: 20px;
+}
+.load a:visited{
+    color: dodgerblue;
+ }
+.load a:link{
+    color: orangered;
+}

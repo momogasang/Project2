@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/favor.css">
+    <title>favor</title>
+</head>
+<body>
+<!--    导航栏-->
+<header>
+    <nav class="nav">
+        <li>导航条目：
+            <a href="Homepage.html">首页</a>
+            <a href="Browsepage.html">浏览页</a>
+            <a href="Search.html">搜索页</a></li>
+        <div class="personal">
+            <button class="dropdown">个人中心</button>
+            <div class="dropdown-content">
+                <div id="upload"><img src="../images/top.png" width="28"><a href="upload.html">上传</a></div>
+                <div id="myPhoto"><img src="../images/faimly%20album.png" width="28"><a href="myPhoto.html">我的照片</a></div>
+                <div id="myTuck"><img src="../images/scan%20read.png" width="28"><a href="favor.html">我的收藏</a></div>
+                <div id="loadding"><img src="../images/nickname.png" width="28"><a href="../index.html">登入</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <h1>My Favorite</h1>
+    <div id="div1">
+        <div class="article">
+            <a href="details.html"><img src="../travel-images/normal/small/9496787858.jpg"></a>
+            <span>
+                <h2>Title</h2>
+                <p>Welcome to the Fundamentals of Web Develop. The textbook is intended to cover the broad range of
+                topics
+                required for modern web develop.
+                </p>
+                <p>I am the bone of my sword Steel is my body,and fire is my blood . I
+                have
+                created over a thousand blades Unknown to Death.
+
+                or known to Life. Have withstood pain to create
+                many
+                weapons. Yet, those hands will never hold anything. So as I pray,
+                </p>N
+                <em class="gate">Unlimited Blade Works.</em>
+
+                <p>If there is no death, there is no life. If there is life, there is death
+
+                What you call eternity should only be eternal death, not eternal life
+
+                Beast of disaster, evil from human beings
+
+                The hope of return is the root of resistance
+
+                The name of Grand is not what I need. Now with this sabre, I can engrave the strongest proof
+
+                The fallen beast is still the mother of the original, so I hereby disclose my true name. From the
+                abyss
+                of the valley to the death of gloom
+                </p>
+                <button class="Delete" onclick="alert('图片已删除')">Delete</button>
+            </span>
+        </div>
+        <div class="article">
+            <a href="details.html"><img src="../travel-images/normal/small/9496787858.jpg"></a>
+            <span>
+                <h2>Title</h2>
+                <p>Welcome to the Fundamentals of Web Develop. The textbook is intended to cover the broad range of
+                topics
+                required for modern web develop.
+                </p>
+                <p>I am the bone of my sword Steel is my body,and fire is my blood . I
+                have
+                created over a thousand blades Unknown to Death.
+
+                or known to Life. Have withstood pain to create
+                many
+                weapons. Yet, those hands will never hold anything. So as I pray,
+                </p>N
+                <em class="gate">Unlimited Blade Works.</em>
+
+                <p>If there is no death, there is no life. If there is life, there is death
+
+                What you call eternity should only be eternal death, not eternal life
+
+                Beast of disaster, evil from human beings
+
+                The hope of return is the root of resistance
+
+                The name of Grand is not what I need. Now with this sabre, I can engrave the strongest proof
+
+                The fallen beast is still the mother of the original, so I hereby disclose my true name. From the
+                abyss
+                of the valley to the death of gloom
+                </p>
+                <button class="Delete" onclick="alert('图片已删除')">Delete</button>
+            </span>
+        </div>
+        <div class=" article">
+            <a href="details.html"><img src="../travel-images/normal/small/9496787858.jpg"></a>
+            <span>
+                <h2>Title</h2>
+                <p>Welcome to the Fundamentals of Web Develop. The textbook is intended to cover the broad range of
+                topics
+                required for modern web develop.
+                </p>
+                <p>I am the bone of my sword Steel is my body,and fire is my blood . I
+                have
+                created over a thousand blades Unknown to Death.
+
+                or known to Life. Have withstood pain to create
+                many
+                weapons. Yet, those hands will never hold anything. So as I pray,
+                </p>N
+                <em class="gate">Unlimited Blade Works.</em>
+
+                <p>If there is no death, there is no life. If there is life, there is death
+
+                What you call eternity should only be eternal death, not eternal life
+
+                Beast of disaster, evil from human beings
+
+                The hope of return is the root of resistance
+
+                The name of Grand is not what I need. Now with this sabre, I can engrave the strongest proof
+
+                The fallen beast is still the mother of the original, so I hereby disclose my true name. From the
+                abyss
+                of the valley to the death of gloom
+                </p>
+                <button class="Delete" onclick="alert('图片已删除')">Delete</button>
+            </span>
+            <div class="foot">
+                < 1 2 3 4 5 6 ... 9 >
+            </div>
+        </div>
+    </div>
+
+</main>
+<!--页脚-->
+<section class="footer">
+    <footer>
+        <div><a class="about us" href="mailto:19302010055@fudan.edu.cn">联系我们</a> |
+            <a href="#top" class="backTop">回到顶端</a></div>
+        <address><p>Copyright © 2020-2021 Web fundamental.All Rights Reserved.备案号:19302010055</p></address>
+    </footer>
+</section>
+</body>
+</html>
+
+<script src="jq.js"></script>
+
+<script>
+    $(document).ready(function(){
+        window.onload = function(){
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/../php/home.php',
+                async: false,
+                success: function (data) {
+                    if(data.status == 1){
+                        $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../php/logout.php'>退出</a>");
+                    } else {
+                        // console.log(data.msg);
+                        $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                    }
+                },
+            });
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/../php/favor.php',
+                async: false,
+                success: function (data) {
+                    if(data.status == 1){
+                        if(data.msg.length>0){
+                            $('#div1').html(" ");
+                            hr = "";
+                            for(i=0;i<data.msg.length;i++){
+                                hr += "<div class='article s"+data.msg[i].ImageID+"'>";
+                                hr += "<a href='details.html'><img src='../travel-images/normal/small/"+data.msg[i].PATH+"'></a>";
+                                hr += "<span>";
+                                hr += "<h2>"+data.msg[i].Title+"</h2>";
+                                // hr += "<p>Welcome to the Fundamentals of Web Develop. The textbook is intended to cover the broad range of topics required for modern web develop. </p>";
+                                hr += "<p>I am the bone of my sword Steel is my body,and fire is my blood . I have created over a thousand blades Unknown to Death. or known to Life. Have withstood pain to create many weapons. Yet, those hands will never hold anything. So as I pray, </p>";
+                                hr += "N <em class='gate'>Unlimited Blade Works.</em>";
+                                hr += "<p>If there is no death, there is no life. If there is life, there is death What you call eternity should only be eternal death, not eternal life Beast of disaster, evil from human beings The hope of return is the root of resistance The name of Grand is not what I need. Now with this sabre, I can engrave the strongest proof The fallen beast is still the mother of the original, so I hereby disclose my true name. From the abyss of the valley to the death of gloom </p>";
+                                // hr += "<p>"+data.msg[i].Description+"</p>";
+                                hr += '<button class="Delete" onclick="deletea('+data.msg[i].ImageID+')">Delete</button>';
+                                hr += "</span>";
+                                hr += "</div>";
+                            }
+                            $('#div1').append(hr);
+                        }
+                    } else {
+                        // console.log(data.msg);
+                        // $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                    }
+                },
+            });
+            return false;
+        }
+    });
+
+    function deletea(ImageID){
+        $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/../php/delete.php',
+                data:{
+                    'ImageID':ImageID
+                },
+                async: false,
+                success: function (data) {
+                    if(data.status == 1){
+                        $('.s'+ImageID).remove();
+                    } else {
+                    }
+                },
+            });
+    }
+</script>

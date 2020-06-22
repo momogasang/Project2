@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/details.css">
+    <title>details</title>
+</head>
+<body>
+<header>
+    <!--    导航栏-->
+    <nav class="nav">
+        <li>导航条目：
+            <a href="Homepage.html">首页</a>
+            <a href="Browsepage.html">浏览页</a>
+            <a href="Search.html">搜索页</a></li>
+        <div class="personal">
+            <button class="dropdown">个人中心</button>
+            <div class="dropdown-content">
+                <div id="upload"><img src="../images/top.png" width="28"><a href="upload.html">上传</a></div>
+                <div id="myPhoto"><img src="../images/faimly%20album.png" width="28"><a href="myPhoto.html">我的照片</a></div>
+                <div id="myTuck"><img src="../images/scan%20read.png" width="28"><a href="favor.html">我的收藏</a></div>
+                <div id="loadding"><img src="../images/nickname.png" width="28"><a href="../index.html">登入</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<style>
+    main span h2+p {
+        position: relative;
+        bottom: 90px;
+        left: 800px;
+        top: -60px;
+    }
+</style>
+<main>
+    <h1>details</h1>
+    <div id="frame">
+        <div class="article">
+            <span><h2>山清水秀</h2><p>by HR</p></span>
+            <img src="../travel-images/normal/small/9496787858.jpg">
+            <h3 id="collocated">Like Number</h3><b>99</b>
+            <h3>Image Details</h3>
+            <div id="detail">
+                <h4>Content:Scenery</h4>
+                <h4>Country:China</h4>
+                <h4>City:Shanghai</h4>
+            </div>
+            <button onclick="alert('已收藏该图片')">💗 收藏</button>
+        </div>
+        <article>
+            <p>Welcome to the Fundamentals of Web Develop. The textbook is intended to cover the broad range of
+                topics
+                required for modern web develop.
+            </p>
+            <p>I am the bone of my sword Steel is my body,and fire is my blood . I
+                have
+                created over a thousand blades Unknown to Death.
+
+                or known to Life. Have withstood pain to create
+                many
+                weapons. Yet, those hands will never hold anything. So as I pray,
+                <em class="gate">Unlimited Blade Works.</em>
+
+            <p>If there is no death, there is no life. If there is life, there is death
+
+                What you call eternity should only be eternal death, not eternal life
+
+                Beast of disaster, evil from human beings
+
+                The hope of return is the root of resistance
+
+                The name of Grand is not what I need. Now with this sabre, I can engrave the strongest proof
+
+                The fallen beast is still the mother of the original, so I hereby disclose my true name. From the
+                abyss
+                of the valley to the death of gloom
+            </p>
+        </article>
+    </div>
+</main>
+
+
+<!--页脚-->
+<section class="footer">
+    <footer>
+        <div><a class="about us" href="mailto:19302010055@fudan.edu.cn">联系我们</a> |
+            <a href="#top" class="backTop">回到顶端</a></div>
+        <address><p>Copyright © 2020-2021 Web fundamental.All Rights Reserved.备案号:19302010055</p></address>
+    </footer>
+</section>
+</body>
+</html>
+
+<script src="jq.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/../php/home.php',
+            async: false,
+            success: function (data) {
+                if(data.status == 1){
+                    $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../php/logout.php'>退出</a>");
+                } else {
+                    // console.log(data.msg);
+                    $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                }
+            },
+        });
+        function getQueryString(name) {   
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if( r != null ) return decodeURI( r[2] ); return null;   
+        }
+        var mytype=getQueryString("id");
+
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/../php/details.php',
+            data:{
+                "ImageID":mytype
+            },
+            async: false,
+            success: function (data) {
+                if(data.status == 1){
+                    if(data.msg['data'] != ""){
+                        $('.article').html(" ");
+                        hr = "";
+                        // for(i=0;i<data.msg.length;i++){
+                            hr += "<span><h2>"+data.msg['data'].Title+"</h2><p>by "+data.msg['UserName']+"</p></span>";
+                            hr += "<img src='../travel-images/normal/small/"+data.msg['data'].PATH+"'>";
+                            hr += "<h3 id='collocated'>Like Number</h3><b>"+data.msg['Number']+"</b>";
+                            hr += "<h3>Image Details</h3>";
+                            hr += "<div id='detail'>";
+                            hr += "<h4>Content:"+data.msg['data'].Content+"</h4>";
+                            hr += "<h4>Country:"+data.msg['Country']+"</h4>";
+                            hr += "<h4>City:"+data.msg['City']+"</h4>";
+                            hr += '</div>';
+                            hr += "<button onclick='deletea("+data.msg['data'].ImageID+")'>💗 收藏</button>";
+                        // }
+                        $('.article').append(hr);
+                    }
+                } else {
+                    // console.log(data.msg);
+                    // $("#loadding").html("<img src='../images/nickname.png' width='28'><a href='../index.html'>登入</a>");
+                }
+            },
+        });
+        return false;
+    });
+
+    function deletea(ImageID){
+        // alert(ImageID)
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/../php/favor2.php',
+            data:{
+                'ImageID':ImageID
+            },
+            async: false,
+            success: function (data) {
+                if(data.status == 1){
+                    alert('收藏成功')
+                    window.location.href="/src/favor.html"
+                } else {
+                }
+            },
+        });
+    }
+</script>
