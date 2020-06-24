@@ -1,0 +1,242 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Apple LiSung";
+    font-size: 15px;
+    margin: 0;
+    color: deepskyblue;
+    background-color: #f6f6f6;
+}
+
+/*导航栏*/
+.nav {
+    position: relative;
+    padding: 1px;
+    text-align: left;
+    border: rgba(0, 0, 0, 0.5);
+    border-style: solid;
+    border-width: 1px;
+    background-clip: content-box;
+    background-color: black;
+    width: 1450px;
+}
+
+/*导航条目*/
+.nav li {
+    position: relative;
+    font-size: 10px;
+    margin: 15px;
+    display: inline-block;
+    font-size: 17px;
+}
+
+header a {
+    color: rgb(255, 240, 255);
+    text-decoration: none;
+}
+
+header a:visited {
+    color: dodgerblue;
+
+}
+
+header a:link {
+    color: cornflowerblue;
+}
+
+header a:hover {
+    color: whitesmoke;
+    border-bottom: 2px solid #38f;
+    text-decoration: underline;
+}
+
+header b {
+    display: inline-block;
+    color: dodgerblue;
+    border-bottom: 2px solid #38f;
+}
+
+/* 下拉按钮样式 */
+.dropdown {
+    background-color: rgba(0, 0, 0, 1);
+    color: dodgerblue;
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* 容器 */
+.personal {
+    position: absolute;
+    right: 20px;
+    display: inline-block;
+
+}
+
+/* 下拉内容 */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 1;
+    min-width: 120px;
+    min-height: 180px;
+    text-align: center;
+    float: right;
+    box-shadow: 5px 1px 3px rgba(100, 200, 200, 1)
+}
+
+.dropdown-content div img {
+    vertical-align: middle;
+}
+
+/* 下拉菜单的链接 */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 15px;
+}
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+.dropdown-content a:hover {
+    color: dodgerblue;
+    border-bottom: 2px solid #38f;
+}
+
+/* 在鼠标移上去后显示下拉菜单 */
+.personal:hover .dropdown-content {
+    display: block;
+}
+
+/* 当下拉内容显示后修改下拉按钮的背景颜色 */
+.personal:hover .dropdown {
+    background-color: wheat;
+    font-size: 17px;
+}
+
+/*页脚*/
+.footer {
+    font-family: "Apple SD Gothic Neo";
+    position: relative;
+    padding-right: 20px;
+    bottom: 0;
+    clear: both;
+    background-clip: content-box;
+    color: white;
+    height: 55px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 1455px;
+}
+
+.footer div a {
+    padding: 20px;
+    color: white;
+}
+
+address {
+    font-size: xx-small;
+}
+
+/*搜索栏的标题*/
+.title {
+    background-clip: border-box;
+    border-style: solid;
+    border-color: rgba(0,0,2,0.6);
+    border-radius: 5px;
+    border-width:1px;
+    background-color: rgba(235,250,255,0.5);
+    margin-left: 10px;
+    padding-left:20px ;
+    padding-top: 6px;
+    height: 30px;
+    top:14px;
+    position: relative;
+    font-size: larger;
+}
+
+/*搜索框*/
+.Filter {
+    margin-left: 10px;
+    background-clip: border-box;
+    border-style: solid;
+    border-color: rgba(0,0,2,0.6);
+    border-width:1px;
+    border-radius: 5px;
+    position: relative;
+}
+/*选择*/
+.radio{
+    position: relative;
+    left: 25px;
+}
+/*搜索方式*/
+form h3{
+    display: inline-flex;
+    position: relative;
+    left: 34px;
+}
+/*点击搜索按钮*/
+form button{
+    height: 32px;
+    width: 90px;
+    position: relative;
+    left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow:  8px 4px 3px forestgreen;
+    background-color: lawngreen;
+}
+/*表格*/
+table{
+    margin-left: 10px;
+    /*固定表格 */
+    table-layout: fixed;
+    width:1400px;
+    border-radius: 10px;
+}
+/*每张图片的标题*/
+table h2{
+    margin-left: 15px;
+}
+.article{
+    width: 1000px;
+    height: 180px;
+}
+table td{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+table h1 em{
+    font-size: xx-large;
+    padding-left: 30px;
+    background:-webkit-linear-gradient(left , gold , rgb(218,178,115) , blue );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*图片介绍的字体*/
+.gate1{
+    background:-webkit-linear-gradient(left , gold , rgb(218,178,115) , red );
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: x-large;
+}
+.gate2{
+    background:-webkit-linear-gradient(left , greenyellow , rgb(191,42,42) , rgb(255,178,115));
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: x-large;
+}
+/*图片页脚*/
+.foot{
+    text-align: center;
+    font-size: 20px;
+}
